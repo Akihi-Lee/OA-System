@@ -2,16 +2,16 @@ import emptyLayout from '@/layout/empty'
 
 export default [
     {
-        path: '/',
-        redirect: '/index',
+        path: '/test',
+        redirect: '/test',
         component: emptyLayout,
         children: [
             {
                 path: 'index',
-                name: 'index',
-                component: () => import(/* webpackChunkName: 'root' */ '@/view/index'),
+                name: 'test',
+                component: () => import(/* webpackChunkName: 'test' */ '@/view/index'),
                 meta: {
-                    title: '首页'
+                    title: 'ceshi'
                 }
             }
         ]
