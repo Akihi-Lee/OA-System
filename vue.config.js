@@ -20,14 +20,27 @@ const externals = {
 
 module.exports = {
   publicPath: '',
-  devServer: {
-      open: true,
-      // proxy: {
-      //     '/': {
-      //         target: process.env.VUE_APP_API_ROOT,
-      //         changeOrigin: true
-      //     }
-      // }
+  css: {
+    loaderOptions: {
+      postcss: {
+          plugins: [
+              require('autoprefixer'),
+              require('postcss-px-to-viewport')({
+                  'unitToConvert': 'px',
+                  'viewportWidth': 750,
+                  'unitPrecision': 3,
+                  'viewportUnit': 'vw',
+                  'selectorBlackList': [
+                      'ignore',
+                      'van',
+                      'mescroll'
+                  ],
+                  'minPixelValue': 1,
+                  'mediaQuery': false
+              })
+          ]
+      }
+    }
   },
   configureWebpack: config => {
     if (isCDN) {
