@@ -16,13 +16,22 @@ const requireModule = require.context('./modules', false, /\.js$/)
 requireModule.keys().forEach(fileName => {
     routes.push(requireModule(fileName).default)
 })
-routes.push({
-    path: '*',
-    component: () => import('@/view/404'),
-    meta: {
-        title: '找不到页面'
+routes.push(
+    {
+        path: '/login',
+        component: () => import('@/view/login'),
+        meta: {
+            title: '登录'
+        }
+    },
+    {
+        path: '*',
+        component: () => import('@/view/404'),
+        meta: {
+            title: '找不到页面'
+        }
     }
-})
+)
 const router = new Router({
     routes: routes.flat()
 })

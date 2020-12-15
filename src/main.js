@@ -7,6 +7,9 @@ import meta from 'vue-meta'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
+import api from './api'
+Vue.prototype.$api = api
+
 import dayjs from 'dayjs'
 Vue.prototype.$dayjs = dayjs
 Vue.use(cookies)
